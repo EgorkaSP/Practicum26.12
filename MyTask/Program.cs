@@ -1,26 +1,30 @@
-﻿void FillArray(int[] collection)
+﻿int[] oldArray = new int[10];
+int[] newArray = new int[oldArray.Length];
+void FillArray(int[] collection)
 {
     for (int i = 0; i < collection.Length; i++)
     {
-        collection[i] = new Random().Next(-50,50);
+        collection[i] = new Random().Next(1, 20);
     }
 }
 void PrintArray(int[] numbers)
 {
     for (int i = 0; i < numbers.Length; i++)
     {
-       Console.Write($"{numbers[i]} ");
+        if (numbers[i] != 0) Console.Write($"{numbers[i]} ");
+
     }
 }
-
-int[] array = new int[20];
-FillArray(array);
-PrintArray(array);
-Console.WriteLine();
-int size = array.Length;
-for (int i = 0; i < size; i++)
+void Demo(int[] array)
 {
-    if (array[i] > 8) Console.Write($"{array[i]} ");
-    
+    for (int i = 0; i < oldArray.Length; i++)
+    {
+        if (oldArray[i] > 8) newArray[i] = oldArray[i];
+
+    }
 }
+FillArray(oldArray);
+PrintArray(oldArray);
 Console.WriteLine();
+Demo(newArray);
+PrintArray(newArray);
